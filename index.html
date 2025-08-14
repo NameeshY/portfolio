@@ -1,10 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nameesh Y • Portfolio</title>
+  <meta name="description" content="Projects and repositories by Nameesh Yadamreddy" />
+  <link rel="preconnect" href="https://api.github.com">
+  <style>
+    :root{
+      --bg:#0b0e14;--card:#111621;--text:#e6e6e6;--muted:#9aa3b2;--accent:#6ea8fe;--chip:#1b2333;--border:#1a2233
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 20px}
+    header{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+    .title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:.2px}
+    .subtitle{color:var(--muted)}
+    .actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:var(--card);border:1px solid var(--border)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;transition:transform .08s ease, border-color .2s ease}
+    .card:hover{transform:translateY(-2px);border-color:#2b3754}
+    .name{font-weight:700;font-size:18px}
+    .desc{color:var(--muted);min-height:40px}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
+    .chip{background:var(--chip);border:1px solid var(--border);padding:4px 8px;border-radius:999px;font-size:12px;color:#cbd5e1}
+    footer{color:var(--muted);margin:28px 0 8px;text-align:center}
+    .section-title{margin:20px 0 10px;font-weight:800;letter-spacing:.4px}
+    .hide{display:none}
+  </style>
 </head>
 <body>
-  <h1>Hello, I’m Nameesh!</h1>
-  <p>Welcome to my portfolio site.</p>
+  <div class="wrap">
+    <header>
+      <div class="title">Nameesh Y • Projects</div>
+      <div class="subtitle">CS + Statistics @ UIUC • Backend, Data, and AI/ML projects. This page lists my public GitHub repositories.</div>
+      <div class="actions">
+        <a class="btn" href="https://github.com/NameeshY" target="_blank" rel="noopener">GitHub Profile</a>
+        <a class="btn" href="mailto:nameeshyadamreddy@gmail.com">Email</a>
+        <!-- Add resume link if you want:
+        <a class="btn" href="resume.pdf">Resume</a>
+        -->
+      </div>
+    </header>
+
+    <!-- Optional Pinned Section: add repo names you want highlighted -->
+    <h3 class="section-title" id="pinned-title" class="hide">Featured</h3>
+    <div class="grid" id="pinned" class="hide"></div>
+
+    <h3 class="section-title">All Repositories</h3>
+    <div class="grid" id="repos"></div>
+
+    <footer>Built with GitHub Pages • Auto-fetched via GitHub API</footer>
+  </div>
+
+  <script>
+    const USERNAME = "NameeshY";
+
+    // Add any repos here to pin them at the top (exact repo names)
+    const PINNED = [
+      // "UIUC-Weather-Guide",
+      // "SportsIQ",
+      // "pneumonia-detection-cnn"
+    ];
+
+    async function fetchAllRepos(user){
+      // Get up to 100 repos, sorted by update time
+      const url = `https://api.github.com/users/${user}/repos?per_page=100&sort=updated`;
+      const res = await fetch(url);
+      if(!res.ok){
+        throw new Error(`GitHub API error: ${res.status} ${res.statusText}`);
+      }
+      return res.json();
+    }
+
+    function repoCard(r){
+      const topics = (r.topics || []).slice(0,6);
+      const lang = r.language ? `<span class="chip">${r.language}</span>` : "";
+      const stars = r.stargazers_count ? `⭐ ${r.stargazers_count}` : "⭐ 0";
+      const updated = new Date(r.updated_at).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
+      const desc = r.description ? r.description : "";
+
+      const topicChips = topics.map(t=>`<span class="chip">${t}</span>`).join("");
+
+      return `
+        <article class="card">
+          <a class="name" href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
+          <div class="desc">${desc}</div>
+          <div class="meta">
+            ${lang}
+            ${topicChips}
+          </div>
+          <div class="meta">
+            <span>${stars}</span>
+            <span>• Updated ${updated}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function mount(list, elId){
+      const el = document.getElementById(elId);
+      el.innerHTML = list.map(repoCard).join("");
+    }
+
+    (async function init(){
+      try{
+        let repos = await fetchAllRepos(USERNAME);
+
+        // Hide forks by default; feel free to show them by removing this filter
+        repos = repos.filter(r => !r.fork);
+
+        // Pinned first (if any), keeping the same card style
+        if(PINNED.length){
+          const pinnedRepos = PINNED
+            .map(name => repos.find(r => r.name.toLowerCase() === name.toLowerCase()))
+            .filter(Boolean);
+          if(pinnedRepos.length){
+            document.getElementById("pinned-title").classList.remove("hide");
+            mount(pinnedRepos, "pinned");
+          }
+          // Remove pinned from the "All Repositories" list to avoid duplicates
+          const pinnedNames = new Set(pinnedRepos.map(r=>r.name));
+          repos = repos.filter(r => !pinnedNames.has(r.name));
+        }
+
+        // Sort remaining repos by stars desc, then last updated desc
+        repos.sort((a,b)=>{
+          if(b.stargazers_count !== a.stargazers_count){
+            return b.stargazers_count - a.stargazers_count;
+          }
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        });
+
+        mount(repos, "repos");
+      }catch(err){
+        document.getElementById("repos").innerHTML =
+          `<div class="card">Failed to load repositories. ${err.message}</div>`;
+      }
+    })();
+  </script>
 </body>
 </html>
