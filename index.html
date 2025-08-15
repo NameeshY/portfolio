@@ -1,321 +1,251 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nameesh Y • Projects</title>
-<meta name="description" content="Projects and repositories by Nameesh Yadamreddy" />
-<link rel="preconnect" href="https://api.github.com">
-<style>
-  /* ---------- THEME ---------- */
-  :root{
-    --bg: #0b0e14;
-    --panel:#0f1420cc;      /* glass */
-    --card:#0f1420; 
-    --text:#e8edf7;
-    --muted:#9aa3b2;
-    --border:#1b2436;
-    --accent:#7aa2ff;
-    --chip:#151d2b;
-    --ring:#2d3c5d;
-    --shadow: 0 10px 25px rgba(0,0,0,.25);
-  }
-  :root.light{
-    --bg:#f6f8fc;
-    --panel:#ffffffe6;
-    --card:#ffffff;
-    --text:#0f172a;
-    --muted:#5b6474;
-    --border:#e6e9f0;
-    --accent:#2b5cff;
-    --chip:#f2f5ff;
-    --ring:#dfe6ff;
-    --shadow: 0 10px 25px rgba(16,24,40,.08);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;height:100%;font:16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
-  body{background:var(--bg);color:var(--text)}
-
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    border-radius:24px;
-    padding:28px;
-    overflow:hidden;
-    background: radial-gradient(1200px 500px at -10% -30%, #3b5bff33, transparent 60%),
-                radial-gradient(1000px 600px at 120% -20%, #00e0ff22, transparent 60%),
-                var(--panel);
-    border:1px solid var(--border);
-    box-shadow: var(--shadow);
-    display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
-  }
-  .hero-info{display:flex;gap:18px;align-items:center}
-  .avatar{
-    width:64px;height:64px;border-radius:50%;
-    background:linear-gradient(135deg,#7aa2ff,#00e0ff);
-    box-shadow:0 6px 18px rgba(122,162,255,.35);
-    display:flex;align-items:center;justify-content:center;
-    color:white;font-weight:800;font-size:22px;
-  }
-  .title{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:.2px;margin:0}
-  .subtitle{color:var(--muted);margin-top:4px}
-  .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:10px 14px;border-radius:999px;background:var(--card);
-    border:1px solid var(--border)
-  }
-  .btn:hover{box-shadow:0 0 0 3px var(--ring)}
-  .toggle{
-    cursor:pointer;border:1px solid var(--border);background:var(--card);
-    border-radius:10px;padding:8px 12px
-  }
-
-  /* ---------- CONTROLS ---------- */
-  .controls{
-    margin:18px 0 10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center
-  }
-  .input, .select{
-    background:var(--card);color:var(--text);border:1px solid var(--border);
-    border-radius:10px;padding:10px 12px;min-width:220px
-  }
-  .chip{background:var(--chip);border:1px solid var(--border);padding:5px 10px;border-radius:999px;font-size:12px;color:var(--text)}
-  .chip[data-active="true"]{outline:2px solid var(--accent); background:transparent}
-
-  .section-title{margin:20px 0 10px;font-weight:900;letter-spacing:.3px}
-
-  /* ---------- GRID / CARD ---------- */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-  .card{
-    background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;
-    display:flex;flex-direction:column;gap:10px;position:relative;
-    transform:translateY(2px);opacity:0;animation:enter .5s ease forwards
-  }
-  .card:hover{transform:translateY(-2px);transition:transform .12s ease, box-shadow .2s ease}
-  @keyframes enter{to{transform:translateY(0);opacity:1}}
-  .name{font-weight:800;font-size:18px}
-  .desc{color:var(--muted);min-height:44px}
-  .meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
-  .skel{
-    height:140px;border-radius:18px;background:linear-gradient(90deg, #0000, #ffffff11, #0000), var(--card);
-    border:1px solid var(--border);animation:shimmer 1.2s infinite
-  }
-  @keyframes shimmer{0%{background-position:-150% 0}100%{background-position:150% 0}}
-
-  footer{color:var(--muted);margin:28px 0 8px;text-align:center}
-  .empty{color:var(--muted);text-align:center;border:1px dashed var(--border);border-radius:16px;padding:24px;background:var(--panel)}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nameesh Y • Portfolio</title>
+  <meta name="description" content="Projects by Nameesh Yadamreddy — CS + Statistics @ UIUC. Backend, Data, ML/AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; --bg2:#0e1626; --card:#111a2e; --elev:#0f1b33;
+      --text:#e5e7eb; --muted:#a3adc2; --line:#23314f; --brand:#7aa2ff; --brand2:#22d3ee;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:
+         radial-gradient(1200px 600px at 10% -10%,#112044 0%,transparent 55%),
+         radial-gradient(900px 400px at 110% 10%,#0d254f 0%,transparent 60%),
+         linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%); color:var(--text)}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 18px 56px}
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));
+      display:grid;place-items:center;color:#0b1220;font-weight:800}
+    .brand h1{font-size:24px;margin:0;letter-spacing:.3px}
+    .links a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;padding:8px 12px;border:1px solid var(--line);
+      border-radius:10px;color:var(--text);background:#0e1830}
+    .links a:hover{border-color:#35507e}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    /* hero */
+    .hero{border:1px solid var(--line); background:linear-gradient(180deg,#0f1b33 0%,#0f1830 100%);
+      border-radius:18px;padding:28px;margin-top:6px}
+    .hero h2{margin:0 0 6px;font-size:30px}
+    .hero p{margin:0;color:var(--muted);line-height:1.6}
+    .badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+    .badge{font-size:12px;border:1px solid #25406a;background:#0b1730;color:#b9d2ff;border-radius:999px;padding:6px 10px}
+    /* section titles */
+    h3.section{margin:26px 0 12px;font-size:20px}
+    /* featured */
+    .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#0d172b);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}
+    .card:hover{transform:translateY(-2px);border-color:#35507e}
+    .thumb{width:100%;height:140px;border-radius:12px;background:#0b1629;border:1px solid #1d2a44;display:grid;place-items:center;color:#7aa2ff}
+    .meta{display:flex;gap:10px;font-size:12px;color:var(--muted)}
+    .topics{display:flex;gap:6px;flex-wrap:wrap}
+    .topic{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #294066;color:#9fc2ff;background:#0c1831}
+    .btnrow{margin-top:auto;display:flex;gap:10px}
+    .btn{flex:1;text-align:center;text-decoration:none;padding:8px 10px;border-radius:10px;border:1px solid var(--line)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b1220;border:none;font-weight:700}
+    /* controls */
+    .controls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+    .controls input,.controls select{background:#0e1830;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 10px}
+    /* repo grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .repo h4{margin:0 0 4px;font-size:16px}
+    .muted{color:var(--muted)}
+    footer{margin-top:30px;color:var(--muted);text-align:center;font-size:13px}
+    @media (min-width:920px){ .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}}
+  </style>
 </head>
 <body>
   <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">NY</div>
+        <h1>Nameesh Y</h1>
+      </div>
+      <div class="links">
+        <a href="https://github.com/NameeshY" target="_blank">GitHub</a>
+        <a href="mailto:nameeshy@gmail.com">Email</a>
+        <a href="#projects">Projects ↓</a>
+      </div>
+    </header>
+
     <section class="hero">
-      <div class="hero-info">
-        <!-- Replace initials or set your image as background-image on .avatar -->
-        <div class="avatar" id="avatar">NY</div>
-        <div>
-          <h1 class="title">Nameesh Y • Projects</h1>
-          <div class="subtitle">CS + Statistics @ UIUC • Backend, Data, and AI/ML. Auto-listing my public GitHub repositories.</div>
+      <div>
+        <h2>CS + Statistics @ UIUC • Backend, Data, ML/AI</h2>
+        <p>I like building reliable data products and fast APIs. Recent work includes a sports analytics stack (PostgreSQL + Python), a campus weather app in Flutter, and a medical-imaging CNN. Below are featured picks and the rest of my open-source repos.</p>
+        <div class="badges">
+          <span class="badge">Python</span><span class="badge">PostgreSQL</span><span class="badge">Node.js</span>
+          <span class="badge">Flutter</span><span class="badge">TensorFlow/Keras</span><span class="badge">AWS</span>
         </div>
       </div>
-      <div class="hero-actions">
-        <a class="btn" href="https://github.com/NameeshY" target="_blank" rel="noopener">GitHub Profile</a>
-        <a class="btn" href="mailto:nameeshyadamreddy@gmail.com">Email</a>
-        <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌙 / ☀️</button>
+      <div class="card" style="height:100%">
+        <h4 style="margin:0">Quick facts</h4>
+        <ul style="margin:6px 0 0 18px;line-height:1.7;color:var(--muted)">
+          <li>Interested in SWE + Data/ML internships</li>
+          <li>Strong with SQL, ETL, and production APIs</li>
+          <li>Open to collabs — reach out!</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Controls -->
+    <h3 class="section">⭐ Featured Projects</h3>
+    <div id="featured" class="featured"></div>
+
+    <h3 id="projects" class="section">All Repositories</h3>
     <div class="controls">
-      <input id="search" class="input" placeholder="Search repositories..." />
-      <select id="sort" class="select" aria-label="Sort">
+      <input id="search" placeholder="Search repositories…" />
+      <select id="sort">
         <option value="stars">Sort: Stars</option>
-        <option value="updated">Sort: Last Updated</option>
+        <option value="updated">Sort: Recently Updated</option>
         <option value="name">Sort: Name (A–Z)</option>
       </select>
-      <select id="lang" class="select" aria-label="Filter by language">
-        <option value="">Language: All</option>
+      <select id="language">
+        <option value="all">Language: All</option>
       </select>
-      <div id="topicBar" style="display:flex;gap:8px;flex-wrap:wrap"></div>
     </div>
+    <div id="repos" class="grid"></div>
 
-    <!-- Optional featured -->
-    <h3 class="section-title" id="pinned-title" style="display:none">Featured</h3>
-    <div class="grid" id="pinned" style="display:none"></div>
-
-    <h3 class="section-title">All Repositories</h3>
-    <div class="grid" id="repos">
-      <!-- skeletons -->
-      <div class="skel"></div><div class="skel"></div><div class="skel"></div>
-    </div>
-
-    <div id="empty" class="empty" style="display:none">No repositories match your filters.</div>
-
-    <footer>Built on GitHub Pages • Fancy front-end, zero build tools ✨</footer>
+    <footer>© <span id="yr"></span> Nameesh Yadamreddy • <a class="muted" href="https://github.com/NameeshY/NameeshY.github.io">site source</a></footer>
   </div>
 
 <script>
-  const USERNAME = "NameeshY";
+/** -------- CONFIG -------- **/
+const GITHUB_USERNAME = "NameeshY";
 
-  // Add exact names to pin
-  const PINNED = [
-    // "uiuc-weather-app",
-    // "sportsiq"
-  ];
+/* Add any repo names you want pinned, with optional pretty data */
+const FEATURED = [
+  { name: "sportsiq", title: "SportsIQ Analytics", desc: "Real-time sports ETL + dashboard. Queries millions of rows with caching.", topics: ["Python","PostgreSQL","Streamlit"], image: "assets/img/sportsiq.jpg" },
+  { name: "uiuc-weather-app", title: "UIUC Weather Guide", desc: "Campus-aware weather, activity recommendations, and map integration.", topics:["Flutter","Firebase"], image: "assets/img/uiuc-weather.jpg" },
+  { name: "pneumonia-cnn", title: "Pneumonia Detection", desc: "CNN for chest X-rays with augmentation + expert-guided fine-tuning.", topics:["Keras","TensorFlow","Python"], image: "assets/img/pneumonia.jpg" },
+];
 
-  // --- Theme toggle (respects system; persists choice) ---
-  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  const savedTheme = localStorage.getItem('theme');
-  const root = document.documentElement;
-  if ((savedTheme === 'light') || (!savedTheme && prefersLight)) root.classList.add('light');
+/** -------- UTIL -------- **/
+const fmt = n => n.toLocaleString();
+const el = (tag, attrs={}, html="") => {
+  const e = document.createElement(tag);
+  Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v));
+  e.innerHTML = html; return e;
+}
 
-  document.getElementById('themeToggle').onclick = () => {
-    root.classList.toggle('light');
-    localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-  };
+/** -------- DATA FETCH -------- **/
+async function fetchAllRepos() {
+  // We’ll fetch both user repos and (optionally) pinned from FEATURED.
+  const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated`, {
+    headers: { "Accept": "application/vnd.github+json" }
+  });
+  if (!res.ok) throw new Error("GitHub API rate-limited or user not found.");
+  const repos = await res.json();
+  // Filter out forks and archives
+  return repos.filter(r => !r.fork && !r.archived);
+}
 
-  // --- Fetch repos + topics ---
-  async function fetchRepos(){
-    const url = `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`;
-    const res = await fetch(url);
-    if(!res.ok) throw new Error(`GitHub API: ${res.status} ${res.statusText}`);
-    // GitHub topics require v3+ preview headers, but many repos expose them anyway; fallback to empty
-    const data = await res.json();
-    return data.map(r => ({...r, topics: r.topics || []}));
+/** -------- RENDER -------- **/
+function renderFeatured(allRepos) {
+  const mount = document.getElementById("featured");
+  mount.innerHTML = "";
+  FEATURED.forEach(f => {
+    const repo = allRepos.find(r => r.name.toLowerCase() === f.name.toLowerCase());
+    const url = repo ? repo.html_url : `https://github.com/${GITHUB_USERNAME}/${f.name}`;
+    const stars = repo ? repo.stargazers_count : 0;
+    const lang = repo?.language ?? "";
+    const img = f.image ? `<img class="thumb" src="${f.image}" alt="${f.title} thumbnail" />`
+                        : `<div class="thumb">🗂️ ${f.title}</div>`;
+    const topics = (f.topics || repo?.topics || []).slice(0,6)
+                    .map(t => `<span class="topic">${t}</span>`).join("");
+    const liveDemo = repo?.homepage ? `<a class="btn" href="${repo.homepage}" target="_blank">Live Demo</a>` : "";
+    mount.appendChild(el("article",{class:"card"},
+      `${img}
+       <h4 style="margin:4px 0 2px">${f.title || (repo?.name ?? f.name)}</h4>
+       <p class="muted" style="min-height:44px">${f.desc ?? (repo?.description ?? "—")}</p>
+       <div class="meta">
+         <span>★ ${fmt(stars)}</span>
+         <span>${lang || ""}</span>
+       </div>
+       <div class="topics">${topics}</div>
+       <div class="btnrow">
+         <a class="btn primary" href="${url}" target="_blank">Code</a>
+         ${liveDemo}
+       </div>`
+    ));
+  });
+}
+
+function buildLanguageList(repos){
+  const set = new Set(repos.map(r=>r.language).filter(Boolean));
+  const select = document.getElementById("language");
+  [...set].sort().forEach(l => {
+    const o = document.createElement("option");
+    o.value = l; o.textContent = `Language: ${l}`;
+    select.appendChild(o);
+  });
+}
+
+function renderRepos(repos){
+  const grid = document.getElementById("repos");
+  grid.innerHTML = "";
+  repos.forEach(r => {
+    const topics = (r.topics || []).slice(0,6).map(t=>`<span class="topic">${t}</span>`).join("");
+    const home = r.homepage ? `<a class="btn" href="${r.homepage}" target="_blank">Live</a>` : "";
+    grid.appendChild(el("article",{class:"card repo"},
+      `<h4><a href="${r.html_url}" target="_blank">${r.name}</a></h4>
+       <p class="muted" style="min-height:42px">${r.description ?? "—"}</p>
+       <div class="meta"><span>★ ${fmt(r.stargazers_count)}</span><span>${r.language ?? ""}</span><span>Updated ${new Date(r.updated_at).toLocaleDateString()}</span></div>
+       <div class="topics" style="margin-top:8px">${topics}</div>
+       <div class="btnrow" style="margin-top:10px">
+         <a class="btn primary" href="${r.html_url}" target="_blank">Code</a>
+         ${home}
+       </div>`
+    ));
+  });
+}
+
+/** -------- CONTROLS -------- **/
+function applyFilters(base) {
+  const q = document.getElementById("search").value.toLowerCase();
+  const lang = document.getElementById("language").value;
+  const sort = document.getElementById("sort").value;
+
+  let list = base.filter(r =>
+    (!q || r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q)) &&
+    (lang==="all" || r.language===lang)
+  );
+
+  if (sort === "stars") list.sort((a,b)=> b.stargazers_count - a.stargazers_count);
+  if (sort === "updated") list.sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
+  if (sort === "name") list.sort((a,b)=> a.name.localeCompare(b.name));
+
+  renderRepos(list);
+}
+
+/** -------- BOOT -------- **/
+(async () => {
+  document.getElementById("yr").textContent = new Date().getFullYear();
+  try{
+    const repos = await fetchAllRepos();
+
+    // Build language dropdown and featured section
+    buildLanguageList(repos);
+    renderFeatured(repos);
+
+    // Default render: by stars
+    document.getElementById("sort").value = "stars";
+    applyFilters(repos);
+
+    // Hook up controls
+    document.getElementById("search").addEventListener("input", ()=>applyFilters(repos));
+    document.getElementById("language").addEventListener("change", ()=>applyFilters(repos));
+    document.getElementById("sort").addEventListener("change", ()=>applyFilters(repos));
+  }catch(e){
+    document.getElementById("repos").innerHTML = `<div class="card"><strong>Oops:</strong> ${e.message}</div>`;
   }
-
-  function repoCard(r){
-    const topics = (r.topics || []).slice(0,6);
-    const lang = r.language ? `<span class="chip">${r.language}</span>` : "";
-    const stars = r.stargazers_count ?? 0;
-    const updated = new Date(r.updated_at).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
-    const desc = r.description ?? "";
-    const topicChips = topics.map(t=>`<button class="chip" data-topic="${t}" title="Filter by ${t}">${t}</button>`).join("");
-
-    return `
-      <article class="card" data-name="${r.name.toLowerCase()}" data-lang="${r.language||''}" data-topics="${(r.topics||[]).join(',')}">
-        <a class="name" href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a>
-        <div class="desc">${desc}</div>
-        <div class="meta">${lang} ${topicChips}</div>
-        <div class="meta"><span>⭐ ${stars}</span><span>• Updated ${updated}</span></div>
-      </article>
-    `;
-  }
-
-  function mount(list, el){
-    el.innerHTML = list.map(repoCard).join("");
-  }
-
-  function collectLanguages(repos){
-    const set = new Set();
-    repos.forEach(r => r.language && set.add(r.language));
-    return Array.from(set).sort();
-  }
-
-  function collectTopics(repos){
-    const set = new Set();
-    repos.forEach(r => (r.topics||[]).forEach(t => set.add(t)));
-    return Array.from(set).sort().slice(0,16); // show up to 16 common topics
-  }
-
-  function applyFilters(repos){
-    const q = document.getElementById('search').value.trim().toLowerCase();
-    const lang = document.getElementById('lang').value;
-    const activeTopicBtn = document.querySelector('#topicBar .chip[data-active="true"]');
-    const topic = activeTopicBtn ? activeTopicBtn.dataset.topic : "";
-
-    let filtered = repos.filter(r => !r.fork); // hide forks by default
-    if(q) filtered = filtered.filter(r => (r.name?.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q)));
-    if(lang) filtered = filtered.filter(r => (r.language||"") === lang);
-    if(topic) filtered = filtered.filter(r => (r.topics||[]).includes(topic));
-
-    const sortVal = document.getElementById('sort').value;
-    filtered.sort((a,b) => {
-      if(sortVal === 'name') return a.name.localeCompare(b.name);
-      if(sortVal === 'updated') return new Date(b.updated_at) - new Date(a.updated_at);
-      return (b.stargazers_count??0) - (a.stargazers_count??0); // stars default
-    });
-    return filtered;
-  }
-
-  function updateEmptyState(hasItems){
-    document.getElementById('empty').style.display = hasItems ? 'none' : 'block';
-    document.getElementById('repos').style.display = hasItems ? 'grid' : 'none';
-  }
-
-  (async function init(){
-    try{
-      let repos = await fetchRepos();
-
-      // Build language selector
-      const langs = collectLanguages(repos);
-      const langSel = document.getElementById('lang');
-      langs.forEach(L => {
-        const opt = document.createElement('option'); opt.value=L; opt.textContent=L; langSel.appendChild(opt);
-      });
-
-      // Build topic bar
-      const topics = collectTopics(repos);
-      const bar = document.getElementById('topicBar');
-      topics.forEach(t => {
-        const b = document.createElement('button');
-        b.className = 'chip'; b.textContent = t; b.dataset.topic = t;
-        b.onclick = () => {
-          const cur = document.querySelector('#topicBar .chip[data-active="true"]');
-          if(cur && cur!==b) cur.dataset.active = "false";
-          b.dataset.active = b.dataset.active==="true" ? "false" : "true";
-          render();
-        };
-        bar.appendChild(b);
-      });
-
-      // Pinned
-      if(PINNED.length){
-        const pinnedRepos = PINNED.map(name => repos.find(r => r.name.toLowerCase() === name.toLowerCase())).filter(Boolean);
-        if(pinnedRepos.length){
-          document.getElementById('pinned-title').style.display = 'block';
-          const pinEl = document.getElementById('pinned');
-          pinEl.style.display = 'grid';
-          mount(pinnedRepos, pinEl);
-          const set = new Set(pinnedRepos.map(r=>r.name));
-          repos = repos.filter(r => !set.has(r.name));
-        }
-      }
-
-      // Wire controls
-      ['search','sort','lang'].forEach(id => document.getElementById(id).addEventListener('input', render));
-
-      function render(){
-        const list = applyFilters(repos);
-        updateEmptyState(list.length>0);
-        mount(list, document.getElementById('repos'));
-        // make topic chips inside cards clickable to filter
-        document.querySelectorAll('#repos .chip[data-topic]').forEach(btn=>{
-          btn.onclick = () => {
-            const target = document.querySelector(`#topicBar .chip[data-topic="${btn.dataset.topic}"]`);
-            if(target){
-              const active = target.dataset.active==="true";
-              document.querySelectorAll('#topicBar .chip').forEach(x=>x.dataset.active="false");
-              target.dataset.active = active ? "false" : "true";
-              render();
-            }
-          }
-        });
-      }
-
-      render();
-
-      // Optional avatar image
-      // document.getElementById('avatar').style.backgroundImage = 'url(avatar.jpg)';
-      // document.getElementById('avatar').textContent = ''; // clear initials if you set an image
-    }catch(err){
-      document.getElementById('repos').innerHTML = `<div class="empty">Failed to load repositories. ${err.message}</div>`;
-    }
-  })();
+})();
 </script>
 </body>
 </html>
