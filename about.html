@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About • Nameesh Y</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">NY</div><strong>Nameesh Y</strong></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/NameeshY" target="_blank">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>About</h1>
+      <p>CS + Statistics @ UIUC. I enjoy building production-grade data systems, clean APIs, and practical ML/AI. I’ve shipped projects in Python, Node.js, PostgreSQL, Flutter, and AWS.</p>
+      <div class="badges" style="margin-top:14px">
+        <span class="badge">Python</span><span class="badge">PostgreSQL</span><span class="badge">Node.js</span>
+        <span class="badge">FastAPI</span><span class="badge">LLMs/Agents</span><span class="badge">AWS</span>
+      </div>
+    </section>
+
+    <h3 class="section">Timeline</h3>
+    <div class="timeline">
+      <div class="row"><div class="muted">2025</div><div>Built <strong>AI Research Briefer</strong> and <strong>AI Action Agent</strong>.</div></div>
+      <div class="row"><div class="muted">2024</div><div>Shipped <strong>SportsIQ Analytics</strong> (ETL + dashboard), UIUC Weather app.</div></div>
+      <div class="row"><div class="muted">—</div><div>Coursework: Algorithms, Systems, Stats, ML.</div></div>
+    </div>
+
+    <footer class="footer">© <span id="yr"></span> Nameesh Yadamreddy</footer>
+  </div>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
