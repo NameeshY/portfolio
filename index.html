@@ -79,10 +79,10 @@
     <section class="hero">
       <div>
         <h2>CS + Statistics @ UIUC • Backend, Data, ML/AI</h2>
-        <p>I like building reliable data products and fast APIs. Recent work includes a sports analytics stack (PostgreSQL + Python), a campus weather app in Flutter, and a medical-imaging CNN. Below are featured picks and the rest of my open-source repos.</p>
+        <p>I like building reliable data products and fast APIs. Recent work includes a sports analytics stack (PostgreSQL + Python), an <strong>AI Research Briefer</strong>, and an <strong>AI Action Agent</strong>. Below are featured picks and the rest of my open-source repos.</p>
         <div class="badges">
           <span class="badge">Python</span><span class="badge">PostgreSQL</span><span class="badge">Node.js</span>
-          <span class="badge">Flutter</span><span class="badge">TensorFlow/Keras</span><span class="badge">AWS</span>
+          <span class="badge">Flutter</span><span class="badge">LLMs/Agents</span><span class="badge">AWS</span>
         </div>
       </div>
       <div class="card" style="height:100%">
@@ -122,8 +122,8 @@ const GITHUB_USERNAME = "NameeshY";
 /* Add any repo names you want pinned, with optional pretty data */
 const FEATURED = [
   { name: "sportsiq", title: "SportsIQ Analytics", desc: "Real-time sports ETL + dashboard. Queries millions of rows with caching.", topics: ["Python","PostgreSQL","Streamlit"], image: "assets/img/sportsiq.jpg" },
-  { name: "uiuc-weather-app", title: "UIUC Weather Guide", desc: "Campus-aware weather, activity recommendations, and map integration.", topics:["Flutter","Firebase"], image: "assets/img/uiuc-weather.jpg" },
-  { name: "pneumonia-cnn", title: "Pneumonia Detection", desc: "CNN for chest X-rays with augmentation + expert-guided fine-tuning.", topics:["Keras","TensorFlow","Python"], image: "assets/img/pneumonia.jpg" },
+  { name: "ai-research-briefer", title: "AI Research Briefer", desc: "Summarizes academic papers into crisp briefs with citations and suggested follow-up questions.", topics:["Python","LLMs","RAG"] },
+  { name: "ai-action-agent", title: "AI Action Agent", desc: "Agent that turns natural-language intents into API calls and end-to-end workflows.", topics:["Python","Agents","FastAPI","AWS"] },
 ];
 
 /** -------- UTIL -------- **/
@@ -136,13 +136,11 @@ const el = (tag, attrs={}, html="") => {
 
 /** -------- DATA FETCH -------- **/
 async function fetchAllRepos() {
-  // We’ll fetch both user repos and (optionally) pinned from FEATURED.
   const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated`, {
     headers: { "Accept": "application/vnd.github+json" }
   });
   if (!res.ok) throw new Error("GitHub API rate-limited or user not found.");
   const repos = await res.json();
-  // Filter out forks and archives
   return repos.filter(r => !r.fork && !r.archived);
 }
 
@@ -230,15 +228,12 @@ function applyFilters(base) {
   try{
     const repos = await fetchAllRepos();
 
-    // Build language dropdown and featured section
     buildLanguageList(repos);
     renderFeatured(repos);
 
-    // Default render: by stars
     document.getElementById("sort").value = "stars";
     applyFilters(repos);
 
-    // Hook up controls
     document.getElementById("search").addEventListener("input", ()=>applyFilters(repos));
     document.getElementById("language").addEventListener("change", ()=>applyFilters(repos));
     document.getElementById("sort").addEventListener("change", ()=>applyFilters(repos));
