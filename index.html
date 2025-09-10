@@ -4,243 +4,68 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nameesh Y • Portfolio</title>
-  <meta name="description" content="Projects by Nameesh Yadamreddy — CS + Statistics @ UIUC. Backend, Data, ML/AI." />
+  <meta name="description" content="Nameesh Yadamreddy — CS + Stats @ UIUC. Backend, Data, ML/AI." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b1220; --bg2:#0e1626; --card:#111a2e; --elev:#0f1b33;
-      --text:#e5e7eb; --muted:#a3adc2; --line:#23314f; --brand:#7aa2ff; --brand2:#22d3ee;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:
-         radial-gradient(1200px 600px at 10% -10%,#112044 0%,transparent 55%),
-         radial-gradient(900px 400px at 110% 10%,#0d254f 0%,transparent 60%),
-         linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%); color:var(--text)}
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:32px 18px 56px}
-    /* header */
-    header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));
-      display:grid;place-items:center;color:#0b1220;font-weight:800}
-    .brand h1{font-size:24px;margin:0;letter-spacing:.3px}
-    .links a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;padding:8px 12px;border:1px solid var(--line);
-      border-radius:10px;color:var(--text);background:#0e1830}
-    .links a:hover{border-color:#35507e}
-    .links{display:flex;gap:10px;flex-wrap:wrap}
-    /* hero */
-    .hero{border:1px solid var(--line); background:linear-gradient(180deg,#0f1b33 0%,#0f1830 100%);
-      border-radius:18px;padding:28px;margin-top:6px}
-    .hero h2{margin:0 0 6px;font-size:30px}
-    .hero p{margin:0;color:var(--muted);line-height:1.6}
-    .badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
-    .badge{font-size:12px;border:1px solid #25406a;background:#0b1730;color:#b9d2ff;border-radius:999px;padding:6px 10px}
-    /* section titles */
-    h3.section{margin:26px 0 12px;font-size:20px}
-    /* featured */
-    .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid var(--line);background:linear-gradient(180deg,var(--card),#0d172b);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s}
-    .card:hover{transform:translateY(-2px);border-color:#35507e}
-    .thumb{width:100%;height:140px;border-radius:12px;background:#0b1629;border:1px solid #1d2a44;display:grid;place-items:center;color:#7aa2ff}
-    .meta{display:flex;gap:10px;font-size:12px;color:var(--muted)}
-    .topics{display:flex;gap:6px;flex-wrap:wrap}
-    .topic{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #294066;color:#9fc2ff;background:#0c1831}
-    .btnrow{margin-top:auto;display:flex;gap:10px}
-    .btn{flex:1;text-align:center;text-decoration:none;padding:8px 10px;border-radius:10px;border:1px solid var(--line)}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0b1220;border:none;font-weight:700}
-    /* controls */
-    .controls{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
-    .controls input,.controls select{background:#0e1830;border:1px solid var(--line);border-radius:10px;color:var(--text);padding:9px 10px}
-    /* repo grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-    .repo h4{margin:0 0 4px;font-size:16px}
-    .muted{color:var(--muted)}
-    footer{margin-top:30px;color:var(--muted);text-align:center;font-size:13px}
-    @media (min-width:920px){ .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center}}
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">NY</div>
-        <h1>Nameesh Y</h1>
-      </div>
-      <div class="links">
-        <a href="https://github.com/NameeshY" target="_blank">GitHub</a>
-        <a href="mailto:nameeshy@gmail.com">Email</a>
-        <a href="#projects">Projects ↓</a>
-      </div>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">NY</div><strong>Nameesh Y</strong></div>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/NameeshY" target="_blank">GitHub ↗</a>
+      </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero split">
       <div>
-        <h2>CS + Statistics @ UIUC • Backend, Data, ML/AI</h2>
-        <p>I like building reliable data products and fast APIs. Recent work includes a sports analytics stack (PostgreSQL + Python), an <strong>AI Research Briefer</strong>, and an <strong>AI Action Agent</strong>. Below are featured picks and the rest of my open-source repos.</p>
+        <h1>CS + Statistics @ UIUC • Backend, Data, ML/AI</h1>
+        <p>I build reliable data products and fast APIs. Recent work: a sports analytics stack, an <strong>AI Research Briefer</strong> for papers with citations, and an <strong>AI Action Agent</strong> that executes tasks via APIs.</p>
         <div class="badges">
           <span class="badge">Python</span><span class="badge">PostgreSQL</span><span class="badge">Node.js</span>
-          <span class="badge">Flutter</span><span class="badge">LLMs/Agents</span><span class="badge">AWS</span>
+          <span class="badge">LLMs/Agents</span><span class="badge">AWS</span><span class="badge">Flutter</span>
+        </div>
+        <div class="btnrow" style="margin-top:16px;max-width:420px">
+          <a class="btn primary" href="projects.html">See Projects</a>
+          <a class="btn" href="mailto:nameeshy@gmail.com">Email me</a>
         </div>
       </div>
-      <div class="card" style="height:100%">
+      <div class="card">
         <h4 style="margin:0">Quick facts</h4>
-        <ul style="margin:6px 0 0 18px;line-height:1.7;color:var(--muted)">
-          <li>Interested in SWE + Data/ML internships</li>
-          <li>Strong with SQL, ETL, and production APIs</li>
+        <ul style="margin:8px 0 0 18px;line-height:1.7;color:var(--muted)">
+          <li>SWE + Data/ML internship focused</li>
+          <li>Strong with SQL/ETL and production APIs</li>
           <li>Open to collabs — reach out!</li>
         </ul>
       </div>
     </section>
 
-    <h3 class="section">⭐ Featured Projects</h3>
-    <div id="featured" class="featured"></div>
+    <h3 class="section">Featured</h3>
+    <div class="grid" id="home-featured"></div>
 
-    <h3 id="projects" class="section">All Repositories</h3>
-    <div class="controls">
-      <input id="search" placeholder="Search repositories…" />
-      <select id="sort">
-        <option value="stars">Sort: Stars</option>
-        <option value="updated">Sort: Recently Updated</option>
-        <option value="name">Sort: Name (A–Z)</option>
-      </select>
-      <select id="language">
-        <option value="all">Language: All</option>
-      </select>
-    </div>
-    <div id="repos" class="grid"></div>
-
-    <footer>© <span id="yr"></span> Nameesh Yadamreddy • <a class="muted" href="https://github.com/NameeshY/NameeshY.github.io">site source</a></footer>
+    <footer class="footer">© <span id="yr"></span> Nameesh Yadamreddy</footer>
   </div>
-
-<script>
-/** -------- CONFIG -------- **/
-const GITHUB_USERNAME = "NameeshY";
-
-/* Add any repo names you want pinned, with optional pretty data */
-const FEATURED = [
-  { name: "sportsiq", title: "SportsIQ Analytics", desc: "Real-time sports ETL + dashboard. Queries millions of rows with caching.", topics: ["Python","PostgreSQL","Streamlit"], image: "assets/img/sportsiq.jpg" },
-  { name: "ai-research-briefer", title: "AI Research Briefer", desc: "Summarizes academic papers into crisp briefs with citations and suggested follow-up questions.", topics:["Python","LLMs","RAG"] },
-  { name: "ai-action-agent", title: "AI Action Agent", desc: "Agent that turns natural-language intents into API calls and end-to-end workflows.", topics:["Python","Agents","FastAPI","AWS"] },
-];
-
-/** -------- UTIL -------- **/
-const fmt = n => n.toLocaleString();
-const el = (tag, attrs={}, html="") => {
-  const e = document.createElement(tag);
-  Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v));
-  e.innerHTML = html; return e;
-}
-
-/** -------- DATA FETCH -------- **/
-async function fetchAllRepos() {
-  const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&type=owner&sort=updated`, {
-    headers: { "Accept": "application/vnd.github+json" }
-  });
-  if (!res.ok) throw new Error("GitHub API rate-limited or user not found.");
-  const repos = await res.json();
-  return repos.filter(r => !r.fork && !r.archived);
-}
-
-/** -------- RENDER -------- **/
-function renderFeatured(allRepos) {
-  const mount = document.getElementById("featured");
-  mount.innerHTML = "";
-  FEATURED.forEach(f => {
-    const repo = allRepos.find(r => r.name.toLowerCase() === f.name.toLowerCase());
-    const url = repo ? repo.html_url : `https://github.com/${GITHUB_USERNAME}/${f.name}`;
-    const stars = repo ? repo.stargazers_count : 0;
-    const lang = repo?.language ?? "";
-    const img = f.image ? `<img class="thumb" src="${f.image}" alt="${f.title} thumbnail" />`
-                        : `<div class="thumb">🗂️ ${f.title}</div>`;
-    const topics = (f.topics || repo?.topics || []).slice(0,6)
-                    .map(t => `<span class="topic">${t}</span>`).join("");
-    const liveDemo = repo?.homepage ? `<a class="btn" href="${repo.homepage}" target="_blank">Live Demo</a>` : "";
-    mount.appendChild(el("article",{class:"card"},
-      `${img}
-       <h4 style="margin:4px 0 2px">${f.title || (repo?.name ?? f.name)}</h4>
-       <p class="muted" style="min-height:44px">${f.desc ?? (repo?.description ?? "—")}</p>
-       <div class="meta">
-         <span>★ ${fmt(stars)}</span>
-         <span>${lang || ""}</span>
-       </div>
-       <div class="topics">${topics}</div>
-       <div class="btnrow">
-         <a class="btn primary" href="${url}" target="_blank">Code</a>
-         ${liveDemo}
-       </div>`
-    ));
-  });
-}
-
-function buildLanguageList(repos){
-  const set = new Set(repos.map(r=>r.language).filter(Boolean));
-  const select = document.getElementById("language");
-  [...set].sort().forEach(l => {
-    const o = document.createElement("option");
-    o.value = l; o.textContent = `Language: ${l}`;
-    select.appendChild(o);
-  });
-}
-
-function renderRepos(repos){
-  const grid = document.getElementById("repos");
-  grid.innerHTML = "";
-  repos.forEach(r => {
-    const topics = (r.topics || []).slice(0,6).map(t=>`<span class="topic">${t}</span>`).join("");
-    const home = r.homepage ? `<a class="btn" href="${r.homepage}" target="_blank">Live</a>` : "";
-    grid.appendChild(el("article",{class:"card repo"},
-      `<h4><a href="${r.html_url}" target="_blank">${r.name}</a></h4>
-       <p class="muted" style="min-height:42px">${r.description ?? "—"}</p>
-       <div class="meta"><span>★ ${fmt(r.stargazers_count)}</span><span>${r.language ?? ""}</span><span>Updated ${new Date(r.updated_at).toLocaleDateString()}</span></div>
-       <div class="topics" style="margin-top:8px">${topics}</div>
-       <div class="btnrow" style="margin-top:10px">
-         <a class="btn primary" href="${r.html_url}" target="_blank">Code</a>
-         ${home}
-       </div>`
-    ));
-  });
-}
-
-/** -------- CONTROLS -------- **/
-function applyFilters(base) {
-  const q = document.getElementById("search").value.toLowerCase();
-  const lang = document.getElementById("language").value;
-  const sort = document.getElementById("sort").value;
-
-  let list = base.filter(r =>
-    (!q || r.name.toLowerCase().includes(q) || (r.description||"").toLowerCase().includes(q)) &&
-    (lang==="all" || r.language===lang)
-  );
-
-  if (sort === "stars") list.sort((a,b)=> b.stargazers_count - a.stargazers_count);
-  if (sort === "updated") list.sort((a,b)=> new Date(b.updated_at)-new Date(a.updated_at));
-  if (sort === "name") list.sort((a,b)=> a.name.localeCompare(b.name));
-
-  renderRepos(list);
-}
-
-/** -------- BOOT -------- **/
-(async () => {
-  document.getElementById("yr").textContent = new Date().getFullYear();
-  try{
-    const repos = await fetchAllRepos();
-
-    buildLanguageList(repos);
-    renderFeatured(repos);
-
-    document.getElementById("sort").value = "stars";
-    applyFilters(repos);
-
-    document.getElementById("search").addEventListener("input", ()=>applyFilters(repos));
-    document.getElementById("language").addEventListener("change", ()=>applyFilters(repos));
-    document.getElementById("sort").addEventListener("change", ()=>applyFilters(repos));
-  }catch(e){
-    document.getElementById("repos").innerHTML = `<div class="card"><strong>Oops:</strong> ${e.message}</div>`;
-  }
-})();
-</script>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    // minimal featured on home
+    renderFeatured([
+      { name:"sportsiq", title:"SportsIQ Analytics",
+        desc:"Real-time sports ETL + dashboard over millions of rows with caching.",
+        topics:["Python","PostgreSQL","Streamlit"], image:"assets/img/sportsiq.jpg" },
+      { name:"ai-research-briefer", title:"AI Research Briefer",
+        desc:"Summarizes academic papers with citations and follow-up questions.",
+        topics:["Python","LLMs","RAG"], image:"" },
+      { name:"ai-action-agent", title:"AI Action Agent",
+        desc:"Turns natural language into API calls and end-to-end workflows.",
+        topics:["Python","Agents","FastAPI","AWS"], image:"" }
+    ], "home-featured");
+  </script>
 </body>
 </html>
