@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects • Nameesh Y</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><div class="logo">NY</div><strong>Nameesh Y</strong></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/NameeshY" target="_blank">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <h2 class="section" style="margin-top:18px">Featured Projects</h2>
+    <div class="grid" id="featured"></div>
+
+    <h2 class="section">All Repositories</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px">
+      <input id="search" placeholder="Search repositories…" class="pill" style="flex:1;min-width:220px">
+      <select id="sort" class="pill">
+        <option value="stars">Sort: Stars</option>
+        <option value="updated">Sort: Recently Updated</option>
+        <option value="name">Sort: Name (A–Z)</option>
+      </select>
+      <select id="language" class="pill">
+        <option value="all">Language: All</option>
+      </select>
+    </div>
+    <div id="repos" class="grid"></div>
+
+    <footer class="footer">© <span id="yr"></span> Nameesh Yadamreddy</footer>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+  <script>
+    bootProjectsPage({
+      username: "NameeshY",
+      featured: [
+        { name:"sportsiq", title:"SportsIQ Analytics", desc:"Real-time sports ETL + dashboard over millions of rows with caching.", topics:["Python","PostgreSQL","Streamlit"], image:"assets/img/sportsiq.jpg" },
+        { name:"ai-research-briefer", title:"AI Research Briefer", desc:"Summarizes academic papers with citations and follow-up questions.", topics:["Python","LLMs","RAG"] },
+        { name:"ai-action-agent", title:"AI Action Agent", desc:"Turns natural language into API calls and end-to-end workflows.", topics:["Python","Agents","FastAPI","AWS"] }
+      ]
+    });
+  </script>
+</body>
+</html>
