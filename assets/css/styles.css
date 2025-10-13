@@ -47,3 +47,82 @@ a{color:inherit;text-decoration:none}
 .timeline .row{display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start}
 .pill{display:inline-flex;align-items:center;gap:8px;background:#0e1830;border:1px solid var(--line);
   padding:8px 12px;border-radius:999px}
+
+/* === Portfolio layout refinements === */
+
+/* Hero section improvements */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  padding: 40px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--card), var(--bg2));
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero-text h1 {
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hero-img {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  box-shadow: 0 0 25px rgba(122, 162, 255, 0.25);
+}
+
+/* Project grid spacing + thumbnails */
+.grid {
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--card), #0e1830);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand2);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.15);
+}
+
+.thumb img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #1d2a44;
+}
+
+/* Subtle glow buttons */
+.btn.primary {
+  box-shadow: 0 0 12px rgba(122, 162, 255, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(122, 162, 255, 0.4);
+}
