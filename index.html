@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nameesh Y • Portfolio</title>
-  <meta name="description" content="Nameesh Yadamreddy — CS + Stats @ UIUC. Backend, Data, ML/AI." />
+  <meta name="description" content="Nameesh Yadamreddy — Junior at UIUC (CS + Statistics). Backend, Data Engineering, ML/AI, and full-stack projects." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <!-- use the path where your updated CSS lives -->
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <div class="container">
@@ -19,52 +20,85 @@
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="https://github.com/NameeshY" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/NameeshY" target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
     </header>
 
-    <section class="hero split">
-      <div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
         <h1>CS + Statistics @ UIUC • Backend, Data, ML/AI</h1>
-        <p>I build reliable data products and fast APIs. Recent work: a sports analytics stack, an <strong>AI Research Briefer</strong> for papers with citations, and an <strong>AI Action Agent</strong> that executes tasks via APIs.</p>
-        <div class="badges">
-          <span class="badge">Python</span><span class="badge">PostgreSQL</span><span class="badge">Node.js</span>
-          <span class="badge">LLMs/Agents</span><span class="badge">AWS</span><span class="badge">Flutter</span>
+        <p>
+          I’m a junior who loves building reliable data products and fast APIs.
+          Recent work: an <strong>AI forest-fire risk predictor</strong>, a
+          <strong>sports analytics ETL + dashboard</strong>, an
+          <strong>AI Research Briefer</strong>, and a <strong>Go load balancer</strong>.
+        </p>
+
+        <div class="badges" style="margin-top:14px">
+          <span class="badge">Python</span>
+          <span class="badge">Go</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">Node.js</span>
+          <span class="badge">ETL</span>
+          <span class="badge">LLMs</span>
+          <span class="badge">AWS</span>
         </div>
-        <div class="btnrow" style="margin-top:16px;max-width:420px">
+
+        <div class="btnrow" style="margin-top:16px;max-width:440px">
           <a class="btn primary" href="projects.html">See Projects</a>
-          <a class="btn" href="mailto:nameeshy@gmail.com">Email me</a>
+          <a class="btn" href="mailto:nameesh.cs@gmail.com">Email me</a>
         </div>
       </div>
-      <div class="card">
-        <h4 style="margin:0">Quick facts</h4>
+
+      <!-- keep the quick facts card on the right (no photo needed) -->
+      <div class="card" style="min-width:260px;max-width:420px">
+        <h4 style="margin:0 0 6px 0">Quick facts</h4>
         <ul style="margin:8px 0 0 18px;line-height:1.7;color:var(--muted)">
-          <li>SWE + Data/ML internship focused</li>
+          <li>Junior @ UIUC (CS + Stats)</li>
+          <li>Backend/Data engineering, ML/AI, full-stack</li>
           <li>Strong with SQL/ETL and production APIs</li>
-          <li>Open to collabs — reach out!</li>
+          <li>Open to SWE + Data/ML internships</li>
         </ul>
       </div>
     </section>
 
-    <h3 class="section">Featured</h3>
+    <!-- FEATURED -->
+    <h3 class="section">Featured Projects</h3>
     <div class="grid" id="home-featured"></div>
 
     <footer class="footer">© <span id="yr"></span> Nameesh Yadamreddy</footer>
   </div>
+
   <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+  <!-- App helpers -->
   <script src="assets/js/app.js"></script>
   <script>
-    // minimal featured on home
+    // Home featured cards — swap in Forest Fire + Briefer + Go Load Balancer
+    // Add thumbnails into /assets/img/ with these filenames or leave "" to use the styled placeholder.
     renderFeatured([
-      { name:"sportsiq", title:"SportsIQ Analytics",
-        desc:"Real-time sports ETL + dashboard over millions of rows with caching.",
-        topics:["Python","PostgreSQL","Streamlit"], image:"assets/img/sportsiq.jpg" },
-      { name:"ai-research-briefer", title:"AI Research Briefer",
-        desc:"Summarizes academic papers with citations and follow-up questions.",
-        topics:["Python","LLMs","RAG"], image:"" },
-      { name:"ai-action-agent", title:"AI Action Agent",
-        desc:"Turns natural language into API calls and end-to-end workflows.",
-        topics:["Python","Agents","FastAPI","AWS"], image:"" }
+      {
+        name: "forest-fire-prediction",
+        title: "Forest Fire Prediction",
+        desc: "Early-warning risk model with weather + satellite features; REST API + dashboard.",
+        topics: ["Python","FastAPI","ML","Docker"],
+        image: "assets/img/forestfire.jpg"
+      },
+      {
+        name: "ai-research-briefer",
+        title: "AI Research Briefer",
+        desc: "Summarizes academic papers with citations and follow-up questions (RAG).",
+        topics: ["Python","LLMs","RAG"],
+        image: "assets/img/briefer.jpg"
+      },
+      {
+        name: "go-load-balancer",
+        title: "Go Load Balancer",
+        desc: "L4/L7 load balancer with round-robin, health checks, sticky sessions, and metrics.",
+        topics: ["Go","Networking","Docker"],
+        image: "assets/img/loadbalancer.jpg"
+      }
     ], "home-featured");
   </script>
 </body>
