@@ -45,7 +45,8 @@
           <span class="topic">HTML</span><span class="topic">CSS</span><span class="topic">JavaScript</span>
         </div>
         <div class="btnrow">
-          <a class="btn primary" href="https://github.com/NameeshY/custom-video-player" target="_blank" rel="noreferrer">Code</a>
+          <a class="btn primary" href="https://github.com/NameeshY/video-player" target="_blank" rel="noreferrer">Code</a>
+
         </div>
       </div>
     </div>
@@ -71,33 +72,33 @@
   <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
   <script src="assets/js/app.js"></script>
   <script>
-    // Featured grid (pulled by your existing app.js renderer)
-    bootProjectsPage({
-      username: "NameeshY",
-      featured: [
-        {
-          name: "forest-fire-prediction",
-          title: "Forest Fire Prediction",
-          desc: "Early-warning risk model with weather + satellite features; REST API + dashboard.",
-          topics: ["Python","FastAPI","ML","Docker"],
-          image: "assets/img/forestfire.jpg"
-        },
-        {
-          name: "ai-research-briefer",
-          title: "AI Research Briefer",
-          desc: "Summarizes academic papers with citations and follow-up questions (RAG).",
-          topics: ["Python","LLMs","RAG"],
-          image: "assets/img/briefer.jpg"
-        },
-        {
-          name: "go-load-balancer",
-          title: "Go Load Balancer",
-          desc: "L4/L7 load balancer with round-robin, health checks, sticky sessions, and metrics.",
-          topics: ["Go","Networking","Docker"],
-          image: "assets/img/loadbalancer.jpg"
-        }
-      ]
-    });
-  </script>
+  bootProjectsPage({
+    username: "NameeshY",
+    featured: [
+      {
+        name: "forest-fire-prediction",
+        title: "Forest Fire Prediction",
+        desc: "Early-warning risk model with weather + satellite features; REST API + dashboard.",
+        topics: ["Python","FastAPI","ML","Docker"],
+        image: "assets/img/forestfire.jpg"
+      },
+      {
+        name: "ai-research-briefer",
+        title: "AI Research Briefer",
+        desc: "Summarizes academic papers with citations and follow-up questions (RAG).",
+        topics: ["Python","LLMs","RAG"],
+        image: "assets/img/briefer.jpg"
+      },
+      {
+        name: "load-balancer",  <!-- ✅ FIXED repo name -->
+        title: "Go Load Balancer",
+        desc: "L4/L7 load balancer with round-robin, health checks, sticky sessions, and metrics.",
+        topics: ["Go","Networking","Docker"],
+        image: "assets/img/loadbalancer.jpg"
+      }
+    ]
+  });
+</script>
+
 </body>
 </html>
